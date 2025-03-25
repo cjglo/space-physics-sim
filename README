@@ -1,0 +1,16 @@
+
+
+### Dependencies
+
+Raylib 4.5.*
+
+
+#### Dev Todo list
+
+
+
+
+
+### Ideas:
+
+- could scale down the gravity system to just r instead of r^2 and then reduce gravity constant to keep things slower and affect last longer
