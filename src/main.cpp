@@ -12,8 +12,8 @@ int main() {
         renderer.beginDrawing();
         renderer.clearBackground(BLACK);
         UserInput::handleUserInput(world);
-        world.updateObjects();
-        renderer.drawObjects();
+        world.updateSpace();
+        renderer.drawSpace();
         renderer.endDrawing();
     }
 

@@ -1,5 +1,7 @@
 #pragma once
-#include <iostream>
 #include <raylib.h>
-#include "UserInput.hpp"
+
+#include <iostream>
+
 #include "Renderer.hpp"
+#include "UserInput.hpp"

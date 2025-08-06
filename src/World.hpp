@@ -1,6 +1,8 @@
 #pragma once
 #include <stdint.h>
+
 #include <vector>
+
 #include "RuleOfFive.hpp"
 #include "raylib.h"
 
@@ -18,10 +20,13 @@ class World : RuleOfFive {
         float xVelocity = 0.0;
         float yVelocity = 0.0;
         int64_t mass = 80;
-        double getSurfaceArea() { return PI * radius * radius; };
+        double getSurfaceArea() {
+            return PI * radius * radius;
+        };
     };
 
-    World(int screenWidth, int screenHeight) : screenWidth(screenWidth), screenHeight(screenHeight) {}
+    World(int screenWidth, int screenHeight)
+        : screenWidth(screenWidth), screenHeight(screenHeight) {}
 
     [[nodiscard]]
     inline int CalculateForceOfGravity(int mass1, int mass2, int distance) {
@@ -35,11 +40,15 @@ class World : RuleOfFive {
     inline int CalculateAcceleration(int force, int mass) {
         return force / mass;
     }
-    void updateObjects();
+
+    void updateSpace();
+
+    void handleObjectVelocityAndGravity();
 
     std::vector<SpaceObject> objects;
+    bool isPaused = false;
 
-    private:
+   private:
     const int screenWidth;
     const int screenHeight;
 };

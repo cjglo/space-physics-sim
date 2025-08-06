@@ -13,4 +13,3 @@ add_executable(SpacePhysicsSim src/main.cpp src/Renderer.cpp src/World.cpp)
 # Find raylib package
 find_package(raylib REQUIRED)
 target_link_libraries(SpacePhysicsSim PRIVATE raylib)
-

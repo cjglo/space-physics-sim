@@ -1,22 +1,29 @@
 #pragma once
 #include <raylib.h>
 #include <stdint.h>
-#include "World.hpp"
-#include "RuleOfFive.hpp"
+
 #include <vector>
+
+#include "RuleOfFive.hpp"
+#include "World.hpp"
 
 namespace render {
 
 using SpaceObject = world::World::SpaceObject;
 
 class Renderer : RuleOfFive {
-public:
-    Renderer(int screenWidth, int screenHeight, world::World& world) : screenWidth(screenWidth), screenHeight(screenHeight), world(world) {
+   public:
+    Renderer(int screenWidth, int screenHeight, world::World& world)
+        : screenWidth(screenWidth),
+          screenHeight(screenHeight),
+          cornerOfScreenX(screenWidth * 0.9),
+          cornerOfScreenY(screenHeight / 10),
+          world(world) {
         InitWindow(screenWidth, screenHeight, "Space Simulator");
         SetTargetFPS(60);
     }
 
-    void drawObjects();
+    void drawSpace();
 
     inline bool windowShouldClose() {
         return WindowShouldClose();
@@ -38,11 +45,14 @@ public:
         CloseWindow();
     }
 
+   private:
+    void drawMenusAndInfo();
 
-    private:
     const int screenWidth;
     const int screenHeight;
+    const int cornerOfScreenX;
+    const int cornerOfScreenY;
     world::World& world;
 };
 
-}  // namespace matter
+}  // namespace render
