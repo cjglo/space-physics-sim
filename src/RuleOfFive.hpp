@@ -1,6 +1,6 @@
 #pragma once
 class RuleOfFive {
-public:
+   public:
     RuleOfFive() = default;
     RuleOfFive(const RuleOfFive& other) = delete;
     RuleOfFive& operator=(const RuleOfFive& other) = delete;
